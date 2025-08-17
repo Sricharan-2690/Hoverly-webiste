@@ -1,0 +1,30 @@
+# dependencies
+node_modules
+.pnpm
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# production
+dist
+build
+
+# misc
+.DS_Store
+*.pem
+
+# local env files
+.env
+.env.local
+.env.*.local
+
+# IDE / Editor
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

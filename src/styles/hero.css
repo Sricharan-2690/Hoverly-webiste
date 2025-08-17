@@ -1,0 +1,85 @@
+/* ====== HERO SECTION ====== */
+.hero-section {
+  text-align: center;
+  padding: clamp(72px, 14vw, 140px) 16px clamp(40px, 10vw, 80px);
+  position: relative;
+  overflow: visible;          /* allow the 3D box to breathe */
+  max-width: 100vw;
+  min-height: fit-content;
+}
+
+/* content container */
+.hero-content {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* headline + subtext */
+.hero-headline {
+  margin-bottom: 16px;
+}
+
+.hero-subtext {
+  font-size: clamp(14px, 2.2vw, 20px);
+  color: var(--muted, rgba(255,255,255,0.75));
+  max-width: 720px;
+  margin: 0 auto 22px;
+}
+
+.hero-cta .btn-gradient {
+  display: inline-block;
+}
+
+/* ====== 3D VISUAL ====== */
+.hero-visual-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(28px, 6vw, 60px);
+  perspective: 1600px;
+  -webkit-perspective: 1600px;
+}
+
+.hero-bigbox {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  aspect-ratio: 16 / 9;
+  background: rgba(255,255,255,0.02);
+  border-radius: 24px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-out;
+  overflow: hidden; /* contain video inside */
+}
+
+.hero-mockup {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
+.hero-frame {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 28px;
+  pointer-events: none;
+  transform: translateZ(-40px);
+}
+
+/* ====== RESPONSIVE BREAKPOINTS ====== */
+@media (max-width: 991.98px) {  /* tablets & small laptops */
+  .hero-headline { line-height: 1.25; }
+}
+
+@media (max-width: 767.98px) {  /* phones */
+  .hero-section { padding-top: clamp(72px, 18vw, 120px); }
+  .hero-visual-wrap { margin-top: 28px; }
+  .hero-bigbox { max-width: 100%; }
+}

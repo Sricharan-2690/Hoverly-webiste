@@ -1,0 +1,179 @@
+/* ====== GLOBAL LAYOUT ====== */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; /* stop horizontal scroll on mobile */
+}
+
+body {
+  /* keep base color behind sections; gradients live per-section */
+  background: var(--bg);
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+/* ====== SECTIONS (each has its own gradient) ====== */
+.section {
+  padding: clamp(60px, 8vw, 100px) 16px;
+  position: relative;
+  z-index: 1;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.08), transparent 60%),
+    radial-gradient(900px 600px at 90% 10%, rgba(139,92,246,.06), transparent 60%),
+    var(--bg);
+}
+
+/* ====== TYPOGRAPHY ====== */
+.section-title {
+  font-family: 'Sora', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  font-weight: 800;
+  font-size: clamp(24px, 4vw, 44px);
+  letter-spacing: -0.02em;
+  color: var(--heading);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  font-size: clamp(14px, 2vw, 18px);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* ====== SURFACES / CARDS ====== */
+.card-surface {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.0));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  padding: clamp(16px, 3vw, 32px);
+}
+
+/* ====== BUTTONS / BADGES ====== */
+.btn-gradient {
+  background-image: var(--gradient);
+  color: #0b0f1a;
+  border: none;
+  font-weight: 700;
+  font-size: clamp(14px, 1.8vw, 18px);
+  padding: clamp(10px, 2vw, 14px) clamp(18px, 3vw, 28px);
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.badge-soft {
+  background: rgba(34,211,238,0.12);
+  color: var(--primary);
+  border: 1px solid rgba(34,211,238,0.18);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 600;
+  font-size: clamp(12px, 1.5vw, 14px);
+}
+
+/* ====== NAVBAR ====== */
+.nav-logo {
+  height: clamp(28px, 5vw, 36px);
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-glass {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+}
+
+.nav-glass-logo {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  height: clamp(40px, 8vw, 60px);
+}
+
+/* Nav links */
+.navbar .nav-link {
+  transition: color 0.3s ease;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+.active-nav-link {
+  color: #00bfff !important;
+  font-weight: 600;
+  border-bottom: 2px solid #00bfff;
+}
+
+/* Mobile navbar toggler + offcanvas look */
+@media (max-width: 991.98px) { /* < lg */
+  .nav-glass { display: none; }  /* hide desktop pill */
+
+  .navbar .navbar-toggler {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 12px;
+    background: rgba(15,23,42,.55);
+    color: var(--text);
+  }
+
+  .offcanvas {
+    background: var(--surface);
+    color: var(--text);
+  }
+  .offcanvas .nav-link {
+    padding: 12px 0;
+    font-size: 18px;
+  }
+  .offcanvas .btn-gradient {
+    width: 100%;
+    margin-top: 12px;
+  }
+}
+
+/* ====== HERO (shared styles; main responsive rules in hero.css) ====== */
+.hero-headline {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 6vw, 64px);
+  line-height: 1.2;
+  color: var(--heading);
+}
+
+.hero-kicker {
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* faint hr separator */
+.hr-faint {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  border: 0;
+  margin: 40px 0;
+}
+
+/* ====== FOOTER ====== */
+footer .d-flex { gap: 16px; }
+@media (max-width: 767.98px) {
+  footer .d-flex { flex-direction: column !important; text-align: center; }
+}
